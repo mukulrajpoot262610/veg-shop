@@ -22,13 +22,13 @@ const Quality = styled.section`
   height: 100vh;
   background-color: #2d3531;
   display: flex;
-  padding: 0 5rem;
+  padding: 0 8rem;
   position: relative;
 
   & > h1 {
-    font-size: 6.5rem;
-    font-weight: 600;
-    line-height: 9.7rem;
+    font-size: 10.5rem;
+    font-weight: 400;
+    line-height: 10.7rem;
     color: #1ca854;
     position: absolute;
     top: 20%;
@@ -36,7 +36,7 @@ const Quality = styled.section`
 
   & > img {
     object-fit: contain;
-    height: 20rem;
+    height: 30rem;
     position: absolute;
     bottom: 20%;
     right: 10%;

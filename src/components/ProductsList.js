@@ -24,8 +24,8 @@ const Page = styled.div`
 
 const Head1 = styled.div`
   text-align: center;
-  padding: 2rem;
-  font-size: 6.5rem;
+  padding: 5rem;
+  font-size: 9.5rem;
   font-weight: 600;
   line-height: 9.7rem;
   color: #105f36;
@@ -33,7 +33,7 @@ const Head1 = styled.div`
 `;
 
 const Data = styled.div`
-  padding: 3rem;
+  padding: 5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

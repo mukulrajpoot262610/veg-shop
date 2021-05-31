@@ -13,10 +13,10 @@ const Product = ({ name, image, price }) => {
 
 const Prod = styled.div`
   position: relative;
-  height: 30rem;
-  width: 30rem;
+  height: 40rem;
+  width: 40rem;
   background-color: #105f36;
-  margin: 5rem;
+  margin: 8rem;
   border-top-left-radius: 20rem;
   border-top-right-radius: 20rem;
   display: flex;
@@ -34,18 +34,20 @@ const Prod = styled.div`
 
   & > img {
     position: absolute;
-    height: 20rem;
+    height: 30rem;
     bottom: -20%;
     right: -20%;
+    z-index: 10;
   }
 
   & > span {
     position: absolute;
     color: #fff;
-    font-size: 6rem;
+    font-size: 8rem;
     opacity: 0;
     transform: translateX(20rem);
     transition: all 1s ease;
+    z-index: 0;
   }
 
   &:hover span {

@@ -47,7 +47,7 @@ const Header = () => {
           />
           <h1
             className="text"
-            style={{ transform: `translateY(${offesetY * 0.3}px)` }}
+            style={{ transform: `translateY(${offesetY * 0.4}px)` }}
           >
             Vegetables
           </h1>
@@ -55,7 +55,7 @@ const Header = () => {
             src="/images/header/mint-leaves-2.png"
             className="last"
             alt=""
-            style={{ transform: `translateY(-${offesetY * 0.2}px)` }}
+            style={{ transform: `translateY(-${offesetY * 0.4}px)` }}
           />
         </HeroImage>
       </Hero>
@@ -78,7 +78,7 @@ const Hero = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 5rem;
+  padding: 0 7rem;
   padding-top: 10vh;
 
   @media (max-width: 768px) {
@@ -91,16 +91,16 @@ const HeroText = styled.div`
   flex-direction: column;
 
   & > h1 {
-    font-size: 8.5rem;
+    font-size: 12.5rem;
     font-weight: 600;
-    line-height: 9.7rem;
+    line-height: 14.7rem;
     color: #fff;
   }
 
   & > span {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 300;
-    line-height: 9.7rem;
+    line-height: 5rem;
     color: #fff;
   }
   @media (max-width: 768px) {
@@ -115,7 +115,7 @@ const HeroImage = styled.div`
   display: flex;
 
   & > img {
-    width: 10vw;
+    width: 20rem;
     object-fit: contain;
     position: absolute;
     top: 50%;
@@ -131,11 +131,12 @@ const HeroImage = styled.div`
     color: white;
     position: absolute;
     z-index: 0;
+    right: 0;
   }
 
   .main-image {
     object-fit: contain;
-    width: 50rem;
+    width: 70rem;
     z-index: 10;
   }
 
