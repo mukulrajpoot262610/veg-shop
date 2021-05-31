@@ -61,7 +61,7 @@ const SHOP_DATA = [
   },
   {
     id: 11,
-    name: "Purple-Cabbage",
+    name: "Cabbage",
     image: "/images/Purple-Cabbage.png",
     price: 20,
   },

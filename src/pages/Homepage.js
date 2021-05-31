@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
-import Products from "../components/Products";
+import ProductsList from "../components/ProductsList";
 
 const Homepage = () => {
   const [offesetY, setOffsetY] = useState(0);
@@ -27,7 +27,7 @@ const Homepage = () => {
         </h1>
         <img src="/images/badge.svg" alt="" />
       </Quality>
-      <Products />
+      <ProductsList />
     </div>
   );
 };
@@ -50,9 +50,9 @@ const Quality = styled.section`
 
   & > img {
     object-fit: contain;
-    height: 30rem;
+    height: 20rem;
     position: absolute;
-    bottom: 10%;
+    bottom: 20%;
     right: 10%;
   }
 `;
