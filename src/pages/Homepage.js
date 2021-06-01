@@ -37,7 +37,7 @@ const Quality = styled.section`
   & > h1 {
     font-size: 10.5rem;
     font-weight: 400;
-    line-height: 10.7rem;
+    line-height: 13.7rem;
     color: #1ca854;
     position: absolute;
     top: 20%;

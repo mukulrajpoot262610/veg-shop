@@ -19,7 +19,7 @@ const ProductsList = () => {
   };
 
   return (
-    <Page>
+    <Page id="product">
       <Head1>Fresh Products</Head1>
       <Filter>
         <li onClick={() => filterItem("")}>{`All ${data.length}`}</li>
