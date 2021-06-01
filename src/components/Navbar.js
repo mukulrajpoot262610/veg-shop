@@ -2,6 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Navbar = () => {
+  const handleOpen = () => {
+    console.log("Open");
+  };
+  const handleClose = () => {
+    console.log("Close");
+  };
+
   return (
     <Nav>
       <Panel>
@@ -9,16 +16,16 @@ const Navbar = () => {
           <Logo>
             <img src="/images/header/logo.svg" alt="" />
           </Logo>
-          <Menu>
-            <h1>CLOSE</h1> <i class="fas fa-bars"></i>
+          <Menu onClick={handleClose}>
+            <h1>CLOSE</h1> <i className="fas fa-bars"></i>
           </Menu>
         </Nav>
       </Panel>
       <Logo>
         <img src="/images/header/logo.svg" alt="" />
       </Logo>
-      <Menu>
-        <h1>MENU</h1> <i class="fas fa-bars"></i>
+      <Menu onClick={handleOpen}>
+        <h1>MENU</h1> <i className="fas fa-bars"></i>
       </Menu>
     </Nav>
   );

@@ -14,6 +14,15 @@ const Homepage = () => {
         <img src="/images/badge.svg" alt="" />
       </Quality>
       <ProductsList />
+      <Foot>
+        <div>
+          <h1>
+            Products that <br />
+            keeps your family
+            <br /> healthy
+          </h1>
+        </div>
+      </Foot>
     </div>
   );
 };
@@ -40,6 +49,30 @@ const Quality = styled.section`
     position: absolute;
     bottom: 20%;
     right: 10%;
+  }
+`;
+
+const Foot = styled.footer`
+  height: 100vh;
+  background: url("/images/footer.jpg");
+  background-position: center;
+  background-size: cover;
+
+  & > div {
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > h1 {
+      padding: 5rem;
+      font-size: 10.5rem;
+      font-weight: 600;
+      line-height: 15.7rem;
+      color: #1ca854;
+    }
   }
 `;
 

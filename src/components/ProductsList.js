@@ -9,7 +9,12 @@ const ProductsList = () => {
       <Head1>Vegetables</Head1>
       <Data>
         {SHOP_DATA.map((veg) => (
-          <Product name={veg.name} image={veg.image} price={veg.price} />
+          <Product
+            key={veg.id}
+            name={veg.name}
+            image={veg.image}
+            price={veg.price}
+          />
         ))}
       </Data>
     </Page>
