@@ -1,25 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [nav, setNav] = useState({
+    display: "none",
+    opacity: 0,
+  });
+
   const handleOpen = () => {
-    console.log("Open");
+    setNav({
+      display: "block",
+      opacity: 1,
+    });
   };
   const handleClose = () => {
-    console.log("Close");
+    setNav({
+      display: "none",
+      opacity: 0,
+    });
   };
 
   return (
     <Nav>
-      <Panel>
-        <Nav>
+      <Panel style={{ display: nav.display, opacity: nav.opacity }}>
+        <Up>
           <Logo>
             <img src="/images/header/logo.svg" alt="" />
           </Logo>
           <Menu onClick={handleClose}>
             <h1>CLOSE</h1> <i className="fas fa-bars"></i>
           </Menu>
-        </Nav>
+        </Up>
+        <Links>
+          <li>
+            <Link to="/">HOME</Link>
+          </li>
+          <li>
+            <a href="/">ABOUT</a>
+          </li>
+          <li>
+            <a href="/">PRODUCTS</a>
+          </li>
+          <li>
+            <Link to="/signin">SIGN IN</Link>
+          </li>
+        </Links>
       </Panel>
       <Logo>
         <img src="/images/header/logo.svg" alt="" />
@@ -40,7 +66,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 0 8rem;
-  transition: 1s ease;
+  transition: all 2s ease;
 
   /* &:hover {
     height: 100vh;
@@ -49,18 +75,50 @@ const Nav = styled.nav`
 `;
 
 const Panel = styled.div`
-  /* padding: 3rem 4rem; */
   width: 100%;
   height: 100vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  padding: 0 8rem;
   transition: all 2s ease;
-  display: none;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 1);
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Up = styled.div`
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Links = styled.ul`
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+
+  & > li {
+    list-style: none;
+
+    & > a {
+      text-decoration: none;
+      font-size: 8rem;
+      line-height: 12rem;
+      color: #105f36;
+      font-weight: 700;
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
 `;
 
 const Logo = styled.div`
@@ -74,6 +132,7 @@ const Menu = styled.div`
   align-items: center;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.2);
+  transition: all 1s ease;
 
   &:hover {
     background-color: #111;
