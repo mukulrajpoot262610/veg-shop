@@ -159,7 +159,7 @@ const HeroImage = styled.div`
   @media (max-width: 400px) {
     width: 100%;
     .main-image {
-      width: 30rem;
+      width: 50rem;
     }
   } ;
 `;
