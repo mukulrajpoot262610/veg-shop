@@ -59,7 +59,7 @@ const SHOP_DATA = [
     id: 9,
     name: "Pineapple",
     image: "/images/Pineapple.png",
-    price: 20,
+    price: 24,
     category: "fruit",
   },
   {
@@ -80,7 +80,7 @@ const SHOP_DATA = [
     id: 12,
     name: "Tomato",
     image: "/images/Tomato-1.png",
-    price: 20,
+    price: 10,
     category: "fruit",
   },
 ];
