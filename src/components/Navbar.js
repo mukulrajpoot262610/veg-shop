@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { auth } from '../firebase/firebase'
 
-const Navbar = () => {
+const Navbar = ({ currentUser }) => {
   const [nav, setNav] = useState({
     display: "none",
     opacity: 0,
@@ -34,7 +34,7 @@ const Navbar = () => {
         </Up>
         <Links>
           <li>
-            <Link to="/">HOME</Link>
+            <a href="/">HOME</a>
           </li>
           <li>
             <a href="/">ABOUT</a>
@@ -43,7 +43,9 @@ const Navbar = () => {
             <a href="/product">PRODUCTS</a>
           </li>
           <li>
-            <Link to="/signin">SIGN IN</Link>
+            {
+              currentUser ? <div onClick={() => auth.signOut()}>SIGN OUT</div> : <a href="/signin">SIGN IN</a>
+            }
           </li>
         </Links>
       </Panel>
@@ -108,6 +110,18 @@ const Links = styled.ul`
 
     & > a {
       text-decoration: none;
+      font-size: 8rem;
+      line-height: 12rem;
+      color: #105f36;
+      font-weight: 700;
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    & > div {
       font-size: 8rem;
       line-height: 12rem;
       color: #105f36;

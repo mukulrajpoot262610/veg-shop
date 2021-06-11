@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Navbar from "./Navbar";
 
-const Header = () => {
+const Header = ({ currentUser }) => {
   const [offesetY, setOffsetY] = useState(0);
 
   const handleScroll = () => {
@@ -19,7 +18,6 @@ const Header = () => {
 
   return (
     <Head>
-      <Navbar />
       <Hero>
         <HeroText>
           <h1>

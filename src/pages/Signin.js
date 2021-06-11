@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import CustomButton from "../components/CustomButton";
-import Navbar from "../components/Navbar";
 
 //AUTH
 import { signInWithGoogle } from "../firebase/firebase";
@@ -30,7 +29,6 @@ const Signin = () => {
 
   return (
     <Sign>
-      <Navbar />
       <form onSubmit={onFormSubmit}>
         <h1>I Already have an Account</h1>
         <span>Sign In with your email and password</span>
