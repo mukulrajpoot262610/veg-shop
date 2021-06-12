@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import CartContext from "../context/Cart/CartContext";
+import { Link } from 'react-router-dom'
 
-const Product = ({ name, image, price }) => {
+const Product = ({ id, name, image, price, product }) => {
+
+  const { addToCart } = useContext(CartContext)
+
   return (
     <Prod>
       <h1>{name}</h1>
-      <img src={image} alt="" />
+      <Link to={`/product/${id}`}>
+        <img src={image} alt="" />
+      </Link>
       <span>
         {`₹${price}`}
-        <button onClick={() => console.log("qefqe")}>Add to Basket</button>
+        <button onClick={() => addToCart(product)}>Add to Basket</button>
       </span>
     </Prod>
   );
@@ -32,12 +39,14 @@ const Prod = styled.div`
     z-index: 20;
   }
 
-  & > img {
-    position: absolute;
-    height: 30rem;
-    bottom: -20%;
-    right: -20%;
-    z-index: 10;
+  & > a {
+    & > img {
+      position: absolute;
+      height: 30rem;
+      bottom: -20%;
+      right: -20%;
+      z-index: 10;
+    }
   }
 
   & > span {

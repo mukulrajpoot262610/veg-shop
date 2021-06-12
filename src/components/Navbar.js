@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { auth } from '../firebase/firebase'
 
-const Navbar = ({ currentUser }) => {
+const Navbar = () => {
   const [nav, setNav] = useState({
     display: "none",
     opacity: 0,
@@ -34,18 +34,16 @@ const Navbar = ({ currentUser }) => {
         </Up>
         <Links>
           <li>
-            <a href="/">HOME</a>
+            <Link to="/" onClick={handleClose}>HOME</Link>
           </li>
           <li>
-            <a href="/">ABOUT</a>
+            <Link to="/" onClick={handleClose}>ABOUT</Link>
           </li>
           <li>
-            <a href="/product">PRODUCTS</a>
+            <Link to="/product" onClick={handleClose}>PRODUCTS</Link>
           </li>
           <li>
-            {
-              currentUser ? <div onClick={() => auth.signOut()}>SIGN OUT</div> : <a href="/signin">SIGN IN</a>
-            }
+            <Link to="/checkout" onClick={handleClose}>CHECKOUT</Link>
           </li>
         </Links>
       </Panel>

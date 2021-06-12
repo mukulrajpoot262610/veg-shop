@@ -33,6 +33,8 @@ const ProductsList = () => {
             name={veg.name}
             image={veg.image}
             price={veg.price}
+            product={veg}
+            id={veg.id}
           />
         ))}
       </Data>
