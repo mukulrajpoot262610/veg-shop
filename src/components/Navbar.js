@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import CartContext from "../context/Cart/CartContext";
 
 const Navbar = () => {
+
+  const { cartItem } = useContext(CartContext)
+
   const [nav, setNav] = useState({
     display: "none",
     opacity: 0,
@@ -34,16 +38,20 @@ const Navbar = () => {
         </Up>
         <Links>
           <li>
-            <Link to="/" onClick={handleClose}>HOME</Link>
+            <Link to="/" onClick={handleClose}><i className="fas fa-home"></i> HOME</Link>
           </li>
           <li>
-            <Link to="/" onClick={handleClose}>ABOUT</Link>
+            <Link to="/" onClick={handleClose}> <i className="fas fa-users"></i> ABOUT</Link>
           </li>
           <li>
-            <Link to="/product" onClick={handleClose}>PRODUCTS</Link>
+            <Link to="/product" onClick={handleClose}><i className="fas fa-carrot"></i> PRODUCTS</Link>
           </li>
           <li>
-            <Link to="/checkout" onClick={handleClose}>CHECKOUT</Link>
+            <Link to="/checkout" onClick={handleClose}>
+              <span className="cart-badge">
+                <i className="fas fa-shopping-cart"></i>
+                {cartItem.length ? <small className="badge">{cartItem.length}</small> : ""}
+              </span> CHECKOUT</Link>
           </li>
         </Links>
       </Panel>
@@ -103,6 +111,24 @@ const Links = styled.ul`
   align-items: center;
   flex-direction: column;
 
+  .cart-badge {
+    position: relative;
+
+    .badge {
+      height: 5rem;
+      width: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1ca854;
+      border-radius: 50%;
+      position: absolute;
+      top: -10%;
+      right: -15%;
+      font-size: 3rem;
+    }
+  }
+
   & > li {
     list-style: none;
 
@@ -118,6 +144,7 @@ const Links = styled.ul`
         color: #fff;
       }
     }
+    }
 
     & > div {
       font-size: 8rem;
@@ -130,7 +157,6 @@ const Links = styled.ul`
         color: #fff;
       }
     }
-  }
 `;
 
 const Logo = styled.div`

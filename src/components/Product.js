@@ -62,11 +62,16 @@ const Prod = styled.div`
     flex-direction: column-reverse;
 
     & > button {
-      margin: 2rem 0;
-      padding: 1rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
+      padding: 1rem 4rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-family: inherit;
+    font-weight: 600;
+    border-radius: 3rem;
+    border: none;
+    cursor: pointer;
+    background-color: #1ca854; 
+    color: #fff;
     }
   }
 

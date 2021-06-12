@@ -1,71 +1,74 @@
 import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components';
 import CartContext from "../context/Cart/CartContext";
+import { Link } from 'react-router-dom';
 
 const ProductDetailsComp = ({ image, name, category, price, dcp, product }) => {
-    const [offesetY, setOffsetY] = useState(0);
+  const [offesetY, setOffsetY] = useState(0);
 
-    const { addToCart } = useContext(CartContext)
+  const { addToCart } = useContext(CartContext)
 
-    const handleScroll = () => {
-        setOffsetY(window.pageYOffset);
+  const handleScroll = () => {
+    setOffsetY(window.pageYOffset);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
 
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-    return (
-        <Head>
-            <Hero>
-                <HeroText>
-                    <h1>
-                        {name}
-                    </h1>
-                    <h2>
-                        Price: {price}₹
-                    </h2>
-                    <span>
-                        {dcp}
-                    </span>
-                    <button onClick={() => addToCart(product)}>Add To Basket</button>
-                </HeroText>
-                <HeroImage>
-                    <img
-                        src="/images/header/mint-leaves-1.png"
-                        alt=""
-                        style={{
-                            transform: `translateY(${offesetY * 0.1}px)`,
-                        }}
-                        className="first"
-                    />
-                    <img
-                        src={image}
-                        alt=""
-                        className="main-image"
-                    />
-                    <h1
-                        className="text"
-                        style={{ transform: `translateY(${offesetY * 0.4}px)` }}
-                    >
-                        {category}
-                    </h1>
-                    <img
-                        src="/images/header/mint-leaves-2.png"
-                        className="last"
-                        alt=""
-                        style={{ transform: `translateY(-${offesetY * 0.4}px)` }}
-                    />
-                </HeroImage>
-            </Hero>
-            <Rotor></Rotor>
-            <Back></Back>
-        </Head>
-    );
+  return (
+    <Head>
+      <Hero>
+        <HeroText>
+          <h1>
+            {name}
+          </h1>
+          <h2>
+            Price: {price}₹
+          </h2>
+          <span>
+            {dcp}
+          </span>
+          <Link to="/checkout">
+            <button onClick={() => addToCart(product)}>Add To Basket</button>
+          </Link>
+        </HeroText>
+        <HeroImage>
+          <img
+            src="/images/header/mint-leaves-1.png"
+            alt=""
+            style={{
+              transform: `translateY(${offesetY * 0.1}px)`,
+            }}
+            className="first"
+          />
+          <img
+            src={image}
+            alt=""
+            className="main-image"
+          />
+          <h1
+            className="text"
+            style={{ transform: `translateY(${offesetY * 0.4}px)` }}
+          >
+            {category}
+          </h1>
+          <img
+            src="/images/header/mint-leaves-2.png"
+            className="last"
+            alt=""
+            style={{ transform: `translateY(-${offesetY * 0.4}px)` }}
+          />
+        </HeroImage>
+      </Hero>
+      <Rotor></Rotor>
+      <Back></Back>
+    </Head>
+  );
 }
 
 const Head = styled.header`
@@ -116,6 +119,7 @@ const HeroText = styled.div`
     color: #fff;
   }
 
+  & > a {
   & > button {
     padding: 1rem 4rem;
     margin-top: 2rem;
@@ -128,9 +132,14 @@ const HeroText = styled.div`
     background-color: #105f36; 
     color: #fff;
   }
+  }
 
   @media (max-width: 768px) {
     width: 100%;
+
+    & > h1 {
+      font-size: 10rem;
+    }
   } ;
 `;
 const HeroImage = styled.div`

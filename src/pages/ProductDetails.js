@@ -23,7 +23,6 @@ const ProductDetails = (props) => {
     }, [])
 
     const [ds] = product
-    console.log(ds)
 
     return (
         <Com>
