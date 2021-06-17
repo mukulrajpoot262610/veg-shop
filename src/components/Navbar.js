@@ -2,32 +2,35 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import CartContext from "../context/Cart/CartContext";
+import { auth } from "../firebase/firebase";
 
-const Navbar = () => {
+const Navbar = ({ currentUser }) => {
 
   const { cartItem } = useContext(CartContext)
-
+  console.log(currentUser)
   const [nav, setNav] = useState({
     display: "none",
-    opacity: 0,
   });
 
   const handleOpen = () => {
     setNav({
       display: "block",
-      opacity: 1,
     });
   };
   const handleClose = () => {
     setNav({
       display: "none",
-      opacity: 0,
     });
   };
 
+  const onSignOut = () => {
+    auth.signOut()
+    handleClose()
+  }
+
   return (
     <Nav>
-      <Panel style={{ display: nav.display, opacity: nav.opacity }}>
+      <Panel style={{ display: nav.display }}>
         <Up>
           <Logo>
             <img src="/images/header/logo.svg" alt="" />
@@ -41,7 +44,9 @@ const Navbar = () => {
             <Link to="/" onClick={handleClose}><i className="fas fa-home"></i> HOME</Link>
           </li>
           <li>
-            <Link to="/" onClick={handleClose}> <i className="fas fa-users"></i> ABOUT</Link>
+            {
+              currentUser ? <Link to="/" onClick={onSignOut}> <i className="fas fa-sign-out-alt"></i> SIGN OUT</Link> : <Link to="/signin" onClick={handleClose}> <i className="fas fa-sign-in-alt"></i> SIGN IN</Link>
+            }
           </li>
           <li>
             <Link to="/product" onClick={handleClose}><i className="fas fa-carrot"></i> PRODUCTS</Link>

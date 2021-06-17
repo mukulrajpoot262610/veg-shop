@@ -16,7 +16,7 @@ const CheckoutPage = () => {
       {cartItem.length === 0 ? <h1>Cart is Empty 🌾</h1> : (
         <ul>
           {
-            cartItem.map(item => <CheckoutCard name={item.name} price={item.price} image={item.image} id={item.id} key={item.id + 102} />)
+            cartItem.map(item => <CheckoutCard name={item.name} price={item.price} image={item.image} id={item.id} key={item.id + "tr"} />)
           }
         </ul>
       )}
