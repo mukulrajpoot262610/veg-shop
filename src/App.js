@@ -20,7 +20,7 @@ function App() {
     }
   })
 
-  console.log(currentUser)
+  // console.log(currentUser)
 
   return (
     <Router>

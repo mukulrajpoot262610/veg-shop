@@ -7,7 +7,7 @@ import { auth } from "../firebase/firebase";
 const Navbar = ({ currentUser }) => {
 
   const { cartItem } = useContext(CartContext)
-  console.log(currentUser)
+  // console.log(currentUser)
   const [nav, setNav] = useState({
     display: "none",
   });
@@ -63,9 +63,12 @@ const Navbar = ({ currentUser }) => {
       <Logo>
         <img src="/images/header/logo.svg" alt="" />
       </Logo>
-      <Menu onClick={handleOpen}>
-        <h1>MENU</h1> <i className="fas fa-bars"></i>
-      </Menu>
+      <UserNav>
+        <img src={currentUser ? currentUser.photoURL : '/images/man.png'} alt="" />
+        <Menu onClick={handleOpen}>
+          <h1>MENU</h1> <i className="fas fa-bars"></i>
+        </Menu>
+      </UserNav>
     </Nav>
   );
 };
@@ -169,17 +172,30 @@ const Logo = styled.div`
     height: 10vh;
   }
 `;
+
+const UserNav = styled.div`
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+transition: all 1s ease;
+
+  &:hover {
+    background-color: #111;
+  }
+
+  & > img {
+    border-radius: 50%;
+    object-fit: contain;
+    height: 8rem;
+  }
+`;
+
 const Menu = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: all 1s ease;
-
-  &:hover {
-    background-color: #111;
-  }
 
   & > h1 {
     font-size: 2rem;
